@@ -1,4 +1,6 @@
 #include <QApplication>
+#include <QProgressBar>
+#include <QSlider>
 
 #include "window.h"
 
