@@ -20,12 +20,12 @@ Window::Window(QWidget *parent)
     m_buttonInfo=new QPushButton("Info", this);
     m_buttonQuit=new QPushButton("Quit", this);
 
-    QIcon icon_avatar("../InfoLedge/resources/avatar.jpg");
+    QIcon icon_avatar("../InfoLedge/resources/emoji/avatar.jpg");
     m_buttonInfo->setIcon(icon_avatar);
     m_buttonInfo->setGeometry(m_margin,m_margin,
                               m_buttonWidth,m_buttonHeight);
 
-    QIcon icon_door("../InfoLedge/resources/door.jpg");
+    QIcon icon_door("../InfoLedge/resources/emoji/laugh.png");
     m_buttonQuit->setIcon(icon_door);
     m_buttonQuit->setGeometry(m_margin+m_buttonWidth,m_margin,
                               m_buttonWidth,m_buttonHeight);
