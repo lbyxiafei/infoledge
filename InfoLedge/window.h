@@ -2,6 +2,7 @@
 #define WINDOW_H
 
 #include <QWidget>
+#include <QTextEdit>
 
 class QPushButton;
 class Window : public QWidget
@@ -9,16 +10,12 @@ class Window : public QWidget
     Q_OBJECT
 public:
     explicit Window(QWidget *parent = nullptr);
-
 private:
-    int m_counter;
-    QPushButton *m_button;
-
+    int m_margin, m_buttonWidth, m_buttonHeight, m_textWidth, m_textHeight;
+    QPushButton *m_buttonInfo, *m_buttonQuit;
+    QTextEdit *m_textEdit;
 signals:
-    void counterReached();
-
 private slots:
-    void slotButtonClicked(bool);
 };
 
 #endif // WINDOW_H

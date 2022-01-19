@@ -9,39 +9,28 @@ using namespace std;
 Window::Window(QWidget *parent)
     : QWidget{parent}
 {
-    m_counter=0;
-//    setFixedSize(1000, 500);
+    m_margin=10;
+    m_buttonWidth=80, m_buttonHeight=30;
+    m_textWidth=1000, m_textHeight=600;
 
-    m_button=new QPushButton(this);
+    m_textEdit=new QTextEdit(this);
+    m_textEdit->setGeometry(m_margin, m_margin+m_buttonHeight,
+                            m_textWidth, m_textHeight);
 
-    m_button->setText("Hello world!");
-    m_button->setToolTip("A tooltip");
-    m_button->setGeometry(10, 10, 500, 300);
+    m_buttonInfo=new QPushButton("Info", this);
+    m_buttonQuit=new QPushButton("Quit", this);
 
-    QFont font("Courier");
-    m_button->setFont(font);
+    QIcon icon_avatar("../InfoLedge/resources/avatar.jpg");
+    m_buttonInfo->setIcon(icon_avatar);
+    m_buttonInfo->setGeometry(m_margin,m_margin,
+                              m_buttonWidth,m_buttonHeight);
 
-    QIcon icon("../InfoLedge/resources/avatar.jpg");
-    m_button->setIcon(icon);
-
-    m_button->setCheckable(true);
+    QIcon icon_door("../InfoLedge/resources/door.jpg");
+    m_buttonQuit->setIcon(icon_door);
+    m_buttonQuit->setGeometry(m_margin+m_buttonWidth,m_margin,
+                              m_buttonWidth,m_buttonHeight);
 
     // Connects:
-    connect(m_button, SIGNAL (clicked(bool)), this, SLOT (slotButtonClicked(bool)));
-    connect(this, SIGNAL (counterReached()), QApplication::instance(), SLOT (quit()));
-}
-
-void Window::slotButtonClicked(bool checked){
-    if(checked){
-        m_button->setText("Yo~");
-    }
-    else{
-        m_button->setText("Sup!");
-    }
-
-    m_counter++;
-//    cout << m_counter << endl;
-    if(m_counter==10){
-        emit counterReached();
-    }
+    connect(m_buttonInfo, SIGNAL (clicked()), QApplication::instance(), SLOT (aboutQt()));
+    connect(m_buttonQuit, SIGNAL (clicked()), QApplication::instance(), SLOT (quit()));
 }
