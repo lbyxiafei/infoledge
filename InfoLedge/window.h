@@ -11,11 +11,9 @@ class Window : public QWidget
 public:
     explicit Window(QWidget *parent = nullptr);
 private:
-    int m_margin, m_buttonWidth, m_buttonHeight, m_textWidth, m_textHeight;
-    QPushButton *m_buttonSave, *m_buttonQuit;
+    QPushButton *m_buttonSave, *m_buttonLoad, *m_buttonFormat,
+        *m_buttonTemp1, *m_buttonTemp2, *m_buttonQuit;
     QTextEdit *m_textEdit;
-
-    void saveDocument(const QString& qStr);
 signals:
 private slots:
     void slotSaveDocument();
