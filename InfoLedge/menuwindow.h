@@ -1,5 +1,5 @@
-#ifndef WINDOW_H
-#define WINDOW_H
+#ifndef MENUWINDOW_H
+#define MENUWINDOW_H
 
 #include <QLineEdit>
 #include <QTextEdit>
@@ -7,11 +7,11 @@
 
 
 class QPushButton;
-class Window : public QWidget
+class MenuWindow : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Window(QWidget *parent = nullptr);
+    explicit MenuWindow(QWidget *parent = nullptr);
 private:
     QPushButton *m_buttonSave, *m_buttonLoad, *m_buttonFormat,
         *m_buttonTemp1, *m_buttonClear, *m_buttonQuit;
@@ -24,4 +24,4 @@ private slots:
     void slotClearDocuments();
 };
 
-#endif // WINDOW_H
+#endif // MENUWINDOW_H

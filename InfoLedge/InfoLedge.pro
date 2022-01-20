@@ -7,7 +7,9 @@ greaterThan(QT_MAJOR_VERSION, 5): QT += widgets
 
 SOURCES += \
     main.cpp \
-    window.cpp
+    mainwindow.cpp \
+    menuwindow.cpp \
+    searchwindow.cpp
 
 DISTFILES += \
     resources/emoji/avatar.jpg \
@@ -30,4 +32,6 @@ DISTFILES += \
     resources/emoji/wow.png
 
 HEADERS += \
-    window.h
+    mainwindow.h \
+    menuwindow.h \
+    searchwindow.h

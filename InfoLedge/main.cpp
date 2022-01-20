@@ -1,13 +1,13 @@
 #include <QApplication>
 
-#include "window.h"
+#include "menuwindow.h"
 
 using namespace std;
 
 int main(int argc, char **argv){
     QApplication app(argc, argv);
 
-    Window window;
+    MenuWindow window;
     window.show();
 
     return app.exec();

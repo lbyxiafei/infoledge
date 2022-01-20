@@ -5,11 +5,11 @@
 #include <QMessageBox>
 #include <QPushButton>
 
-#include "window.h"
+#include "menuwindow.h"
 
 using namespace std;
 
-Window::Window(QWidget *parent)
+MenuWindow::MenuWindow(QWidget *parent)
     : QWidget{parent}
 {
     int margin=10;
@@ -67,7 +67,7 @@ Window::Window(QWidget *parent)
     connect(m_buttonQuit, SIGNAL (clicked()), QApplication::instance(), SLOT (quit()));
 }
 
-void Window::slotSaveDocument(){
+void MenuWindow::slotSaveDocument(){
     QTextDocument *qTextDocument = m_textEdit->document();
     QString fileName = QFileDialog::getSaveFileName(this,
             tr("Save Text"), "",
@@ -86,7 +86,7 @@ void Window::slotSaveDocument(){
     return;
 }
 
-void Window::slotLoadDocument(){
+void MenuWindow::slotLoadDocument(){
     QString fileName = QFileDialog::getOpenFileName(this,
             tr("Save Text"), "",
             tr("Text (*.txt);;All Files (*)"));
@@ -104,7 +104,7 @@ void Window::slotLoadDocument(){
     }
 }
 
-void Window::slotClearDocuments(){
+void MenuWindow::slotClearDocuments(){
     m_textEdit->clear();
     m_textEditSide->clear();
 }
