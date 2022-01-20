@@ -12,10 +12,13 @@ public:
     explicit Window(QWidget *parent = nullptr);
 private:
     int m_margin, m_buttonWidth, m_buttonHeight, m_textWidth, m_textHeight;
-    QPushButton *m_buttonInfo, *m_buttonQuit;
+    QPushButton *m_buttonSave, *m_buttonQuit;
     QTextEdit *m_textEdit;
+
+    void saveDocument(const QString& qStr);
 signals:
 private slots:
+    void slotSaveDocument();
 };
 
 #endif // WINDOW_H
