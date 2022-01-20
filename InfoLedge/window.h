@@ -12,11 +12,13 @@ public:
     explicit Window(QWidget *parent = nullptr);
 private:
     QPushButton *m_buttonSave, *m_buttonLoad, *m_buttonFormat,
-        *m_buttonTemp1, *m_buttonTemp2, *m_buttonQuit;
-    QTextEdit *m_textEdit;
+        *m_buttonTemp1, *m_buttonClear, *m_buttonQuit;
+    QTextEdit *m_textEdit, *m_textEditSide;
 signals:
 private slots:
     void slotSaveDocument();
+    void slotLoadDocument();
+    void slotClearDocuments();
 };
 
 #endif // WINDOW_H
