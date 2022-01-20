@@ -23,7 +23,7 @@ Window::Window(QWidget *parent)
     QIcon icon_wow("../InfoLedge/resources/emoji/wow.png");
     QIcon icon_laugh("../InfoLedge/resources/emoji/laugh.png");
 
-    // Buttons
+    // Button(s)
     m_buttonSave=new QPushButton("Save", this);
     m_buttonSave->setIcon(icon_avatar);
     m_buttonSave->setGeometry(margin+buttonWidth*buttonCnt++,margin,
@@ -49,7 +49,10 @@ Window::Window(QWidget *parent)
     m_buttonQuit->setGeometry(margin+buttonWidth*buttonCnt++,margin,
                               buttonWidth,buttonHeight);
 
-    // TextEdits
+    // LineEdit(s)
+    m_lineEdit=new QLineEdit(this);
+
+    // TextEdit(s)
     m_textEdit=new QTextEdit(this);
     m_textEdit->setGeometry(margin, margin+buttonHeight,
                             textWidth, textHeight);
@@ -57,7 +60,7 @@ Window::Window(QWidget *parent)
     m_textEditSide->setGeometry(margin+textWidth, margin+buttonHeight,
                             textWidth, textHeight);
 
-    // Connects:
+    // Connect(s):
     connect(m_buttonSave, SIGNAL (clicked()), this, SLOT (slotSaveDocument()));
     connect(m_buttonLoad, SIGNAL (clicked()), this, SLOT (slotLoadDocument()));
     connect(m_buttonClear, SIGNAL (clicked()), this, SLOT (slotClearDocuments()));
