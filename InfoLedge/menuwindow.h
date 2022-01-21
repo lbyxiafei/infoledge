@@ -13,6 +13,8 @@ class MenuWindow : public QWidget
 public:
     explicit MenuWindow(QWidget *parent = nullptr);
 private:
+    int margin_, button_width_, button_height_, button_cnt_;
+
     QPushButton *m_buttonSave, *m_buttonLoad, *m_buttonFormat,
         *m_buttonTemp1, *m_buttonClear, *m_buttonQuit;
     QLineEdit *m_lineEdit;

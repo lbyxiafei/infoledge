@@ -12,9 +12,9 @@ using namespace std;
 MenuWindow::MenuWindow(QWidget *parent)
     : QWidget{parent}
 {
-    int margin=10;
-    int buttonWidth=80, buttonHeight=30, buttonCnt=0;
     int textWidth=500, textHeight=600;
+
+    margin_=10, button_width_=80, button_height_=30, button_cnt_=0;
 
     QIcon icon_avatar("../InfoLedge/resources/emoji/avatar.jpg");
     QIcon icon_happy("../InfoLedge/resources/emoji/happy.png");
@@ -26,38 +26,38 @@ MenuWindow::MenuWindow(QWidget *parent)
     // Button(s)
     m_buttonSave=new QPushButton("Save", this);
     m_buttonSave->setIcon(icon_avatar);
-    m_buttonSave->setGeometry(margin+buttonWidth*buttonCnt++,margin,
-                              buttonWidth,buttonHeight);
+    m_buttonSave->setGeometry(margin_+button_width_*button_cnt_++,margin_,
+                              button_width_,button_height_);
     m_buttonLoad=new QPushButton("Load", this);
     m_buttonLoad->setIcon(icon_happy);
-    m_buttonLoad->setGeometry(margin+buttonWidth*buttonCnt++,margin,
-                              buttonWidth,buttonHeight);
+    m_buttonLoad->setGeometry(margin_+button_width_*button_cnt_++,margin_,
+                              button_width_,button_height_);
     m_buttonFormat=new QPushButton("Format", this);
     m_buttonFormat->setIcon(icon_love);
-    m_buttonFormat->setGeometry(margin+buttonWidth*buttonCnt++,margin,
-                              buttonWidth,buttonHeight);
+    m_buttonFormat->setGeometry(margin_+button_width_*button_cnt_++,margin_,
+                              button_width_,button_height_);
     m_buttonTemp1=new QPushButton("Temp1", this);
     m_buttonTemp1->setIcon(icon_smile);
-    m_buttonTemp1->setGeometry(margin+buttonWidth*buttonCnt++,margin,
-                              buttonWidth,buttonHeight);
+    m_buttonTemp1->setGeometry(margin_+button_width_*button_cnt_++,margin_,
+                              button_width_,button_height_);
     m_buttonClear=new QPushButton("Clear", this);
     m_buttonClear->setIcon(icon_wow);
-    m_buttonClear->setGeometry(margin+buttonWidth*buttonCnt++,margin,
-                              buttonWidth,buttonHeight);
+    m_buttonClear->setGeometry(margin_+button_width_*button_cnt_++,margin_,
+                              button_width_,button_height_);
     m_buttonQuit=new QPushButton("Quit", this);
     m_buttonQuit->setIcon(icon_laugh);
-    m_buttonQuit->setGeometry(margin+buttonWidth*buttonCnt++,margin,
-                              buttonWidth,buttonHeight);
+    m_buttonQuit->setGeometry(margin_+button_width_*button_cnt_++,margin_,
+                              button_width_,button_height_);
 
     // LineEdit(s)
     m_lineEdit=new QLineEdit(this);
 
     // TextEdit(s)
     m_textEdit=new QTextEdit(this);
-    m_textEdit->setGeometry(margin, margin+buttonHeight,
+    m_textEdit->setGeometry(margin_, margin_+button_height_,
                             textWidth, textHeight);
     m_textEditSide=new QTextEdit(this);
-    m_textEditSide->setGeometry(margin+textWidth, margin+buttonHeight,
+    m_textEditSide->setGeometry(margin_+textWidth, margin_+button_height_,
                             textWidth, textHeight);
 
     // Connect(s):
