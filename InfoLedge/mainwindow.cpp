@@ -1,4 +1,6 @@
+#include <QApplication>
 #include <QDebug>
+#include <QPushButton>
 
 #include "mainwindow.h"
 
@@ -19,4 +21,14 @@ MainWindow::MainWindow(QWidget *parent)
     v_main_layout_->addWidget(text_window_);
 
     setCentralWidget(central_widget_);
+
+    // Connect(s):
+    connect(menu_window_->button_save, SIGNAL (clicked()),
+            text_window_, SLOT (slotSaveDocument()));
+    connect(menu_window_->button_load, SIGNAL (clicked()),
+            text_window_, SLOT (slotLoadDocument()));
+    connect(menu_window_->button_clear, SIGNAL (clicked()),
+            text_window_, SLOT (slotClearDocuments()));
+    connect(menu_window_->button_quit, SIGNAL (clicked()),
+            QApplication::instance(), SLOT (quit()));
 }

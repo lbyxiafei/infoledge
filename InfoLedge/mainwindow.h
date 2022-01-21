@@ -20,7 +20,7 @@ private:
     SearchWindow *search_window_;
     TextWindow *text_window_;
 signals:
-
+private slots:
 };
 
 #endif // MAINWINDOW_H

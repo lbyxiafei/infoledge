@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-#include <QApplication>
-
 #include <QPushButton>
 
 #include "menuwindow.h"
@@ -38,10 +36,4 @@ MenuWindow::MenuWindow(QWidget *parent)
     button_quit=new QPushButton("Quit", this);
     button_quit->setIcon(icon_laugh);
     h_button_layout_->addWidget(button_quit);
-
-    // Connect(s):
-//    connect(button_save_, SIGNAL (clicked()), this, SLOT (slotSaveDocument()));
-//    connect(button_load_, SIGNAL (clicked()), this, SLOT (slotLoadDocument()));
-//    connect(button_clear_, SIGNAL (clicked()), this, SLOT (slotClearDocuments()));
-//    connect(button_quit_, SIGNAL (clicked()), QApplication::instance(), SLOT (quit()));
 }
