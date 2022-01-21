@@ -9,7 +9,8 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     menuwindow.cpp \
-    searchwindow.cpp
+    searchwindow.cpp \
+    textwindow.cpp
 
 DISTFILES += \
     resources/emoji/avatar.jpg \
@@ -34,4 +35,5 @@ DISTFILES += \
 HEADERS += \
     mainwindow.h \
     menuwindow.h \
-    searchwindow.h
+    searchwindow.h \
+    textwindow.h

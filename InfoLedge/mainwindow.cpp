@@ -1,18 +1,22 @@
 #include <QDebug>
-#include <QSizePolicy>
 
 #include "mainwindow.h"
-#include "menuwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow{parent}
 {
     central_widget_ = new QWidget(this);
-    grid_layout_ = new QGridLayout();
-    central_widget_->setLayout(grid_layout_);
+    v_main_layout_ = new QVBoxLayout();
+    central_widget_->setLayout(v_main_layout_);
 
     menu_window_ = new MenuWindow(this);
-    grid_layout_->addWidget(menu_window_,0,0);
+    v_main_layout_->addWidget(menu_window_);
+
+    search_window_ = new SearchWindow(this);
+    v_main_layout_->addWidget(search_window_);
+
+    text_window_ = new TextWindow(this);
+    v_main_layout_->addWidget(text_window_);
 
     setCentralWidget(central_widget_);
 }

@@ -1,10 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QGridLayout>
+#include <QBoxLayout>
 #include <QMainWindow>
 
 #include "menuwindow.h"
+#include "searchwindow.h"
+#include "textwindow.h"
 
 class MainWindow : public QMainWindow
 {
@@ -13,9 +15,10 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
 private:
     QWidget *central_widget_;
-    QGridLayout *grid_layout_;
+    QVBoxLayout *v_main_layout_;
     MenuWindow *menu_window_;
-
+    SearchWindow *search_window_;
+    TextWindow *text_window_;
 signals:
 
 };
