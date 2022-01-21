@@ -19,8 +19,7 @@ MenuWindow::MenuWindow(QWidget *parent)
     QIcon icon_wow("../InfoLedge/resources/emoji/wow.png");
     QIcon icon_laugh("../InfoLedge/resources/emoji/laugh.png");
 
-    int textWidth=500, textHeight=600;
-    margin_=10, button_width_=80, button_height_=30, button_cnt_=0;
+    button_cnt_=0;
 
     grid_layout_ = new QGridLayout(this);
 
@@ -51,28 +50,15 @@ MenuWindow::MenuWindow(QWidget *parent)
     // TextEdit(s)
     text_edit_=new QTextEdit(this);
     grid_layout_->addWidget(text_edit_,2,0);
-//    text_edit_->setGeometry(margin_, margin_+button_height_,
-//                            textWidth, textHeight);
+
     text_edit_side=new QTextEdit(this);
     grid_layout_->addWidget(text_edit_side,2,1);
-//    text_edit_side->setGeometry(margin_+textWidth, margin_+button_height_,
-//                            textWidth, textHeight);
 
     // Connect(s):
     connect(button_save_, SIGNAL (clicked()), this, SLOT (slotSaveDocument()));
     connect(button_load_, SIGNAL (clicked()), this, SLOT (slotLoadDocument()));
     connect(button_clear_, SIGNAL (clicked()), this, SLOT (slotClearDocuments()));
     connect(button_quit_, SIGNAL (clicked()), QApplication::instance(), SLOT (quit()));
-}
-
-QSize MenuWindow::sizeHint() const
-{
-    return QSize(500, 500);
-}
-
-QSize MenuWindow::minimumSizeHint() const
-{
-    return QSize(300, 300);
 }
 
 void MenuWindow::slotSaveDocument(){

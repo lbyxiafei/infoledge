@@ -7,7 +7,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow{parent}
 {
-    central_widget_ = new QWidget();
+    central_widget_ = new QWidget(this);
     grid_layout_ = new QGridLayout();
     central_widget_->setLayout(grid_layout_);
 

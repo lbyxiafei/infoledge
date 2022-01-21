@@ -13,8 +13,6 @@ class MenuWindow : public QWidget
     Q_OBJECT
 public:
     explicit MenuWindow(QWidget *parent = nullptr);
-    virtual QSize sizeHint() const;
-    virtual QSize minimumSizeHint() const;
 private:
     int margin_, button_width_, button_height_, button_cnt_;
 
