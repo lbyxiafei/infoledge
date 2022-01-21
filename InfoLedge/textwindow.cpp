@@ -7,48 +7,49 @@
 TextWindow::TextWindow(QWidget *parent)
     : QWidget{parent}
 {
-    h_text_layout_ = new QHBoxLayout(this);
+    h_text_layout_ = new QHBoxLayout();
 
     text_edit=new QTextEdit(this);
     h_text_layout_->addWidget(text_edit);
-
     text_edit_side=new QTextEdit(this);
     h_text_layout_->addWidget(text_edit_side);
+
+    setLayout(h_text_layout_);
 }
 
 void TextWindow::slotSaveDocument(){
-    QTextDocument *qTextDocument = text_edit->document();
-    QString fileName = QFileDialog::getSaveFileName(this,
+    QTextDocument *edit_doc = text_edit->document();
+    QString file_name = QFileDialog::getSaveFileName(this,
             tr("Save Text"), "",
             tr("Text (*.txt);;All Files (*)"));
-    if (fileName.isEmpty()) return;
+    if (file_name.isEmpty()) return;
     else {
-        QFile file(fileName);
+        QFile file(file_name);
         if (!file.open(QIODevice::WriteOnly)) {
            QMessageBox::information(this, tr("Unable to open file"),
                file.errorString());
            return;
         }
-        file.write(qTextDocument->toRawText().toUtf8());
+        file.write(edit_doc->toRawText().toUtf8());
         file.close();
     }
     return;
 }
 
 void TextWindow::slotLoadDocument(){
-    QString fileName = QFileDialog::getOpenFileName(this,
+    QString file_name = QFileDialog::getOpenFileName(this,
             tr("Save Text"), "",
             tr("Text (*.txt);;All Files (*)"));
-    if (fileName.isEmpty()) return;
+    if (file_name.isEmpty()) return;
     else {
-        QFile file(fileName);
+        QFile file(file_name);
         if (!file.open(QFile::ReadOnly)) {
            QMessageBox::information(this, tr("Unable to open file"),
                file.errorString());
            return;
         }
-        QString qStringContent = QString::fromUtf8(file.readAll());
-        text_edit->setPlainText(qStringContent);
+        QString file_content_in_str = QString::fromUtf8(file.readAll());
+        text_edit->setPlainText(file_content_in_str);
         file.close();
     }
 }

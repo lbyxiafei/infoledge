@@ -8,14 +8,14 @@ using namespace std;
 MenuWindow::MenuWindow(QWidget *parent)
     : QWidget{parent}
 {
+    h_button_layout_ = new QHBoxLayout();
+
     QIcon icon_avatar("../InfoLedge/resources/emoji/avatar.jpg");
     QIcon icon_happy("../InfoLedge/resources/emoji/happy.png");
     QIcon icon_love("../InfoLedge/resources/emoji/love.png");
     QIcon icon_smile("../InfoLedge/resources/emoji/smile.png");
     QIcon icon_wow("../InfoLedge/resources/emoji/wow.png");
     QIcon icon_laugh("../InfoLedge/resources/emoji/laugh.png");
-
-    h_button_layout_ = new QHBoxLayout(this);
 
     // Button(s)
     button_save=new QPushButton("Save", this);
@@ -36,4 +36,6 @@ MenuWindow::MenuWindow(QWidget *parent)
     button_quit=new QPushButton("Quit", this);
     button_quit->setIcon(icon_laugh);
     h_button_layout_->addWidget(button_quit);
+
+    setLayout(h_button_layout_);
 }
