@@ -2,7 +2,7 @@
 #define MENUWINDOW_H
 
 #include <QLineEdit>
-#include <QGridLayout>
+#include <QBoxLayout>
 #include <QTextEdit>
 #include <QWidget>
 
@@ -14,13 +14,14 @@ class MenuWindow : public QWidget
 public:
     explicit MenuWindow(QWidget *parent = nullptr);
 private:
-    int margin_, button_width_, button_height_, button_cnt_;
+    int button_cnt_;
 
-    QGridLayout *grid_layout_;
+    QVBoxLayout *v_box_layout_;
+    QHBoxLayout *h_button_layout_, *h_search_layout_, *h_text_layout_;
     QPushButton *button_save_, *button_load_, *button_format_,
         *button_temp1_, *button_clear_, *button_quit_;
     QLineEdit *line_edit_;
-    QTextEdit *text_edit_, *text_edit_side;
+    QTextEdit *text_edit_, *text_edit_side_;
 
 signals:
 private slots:

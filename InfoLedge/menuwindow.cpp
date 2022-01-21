@@ -21,38 +21,46 @@ MenuWindow::MenuWindow(QWidget *parent)
 
     button_cnt_=0;
 
-    grid_layout_ = new QGridLayout(this);
+    // Layouts
+    v_box_layout_ = new QVBoxLayout(this);
+    h_button_layout_ = new QHBoxLayout();
+    h_search_layout_ = new QHBoxLayout();
+    h_text_layout_ = new QHBoxLayout();
+
+    v_box_layout_->addLayout(h_button_layout_);
+    v_box_layout_->addLayout(h_search_layout_);
+    v_box_layout_->addLayout(h_text_layout_);
 
     // Button(s)
     button_save_=new QPushButton("Save", this);
     button_save_->setIcon(icon_avatar);
-    grid_layout_->addWidget(button_save_,0,button_cnt_++);
+    h_button_layout_->addWidget(button_save_);
     button_load_=new QPushButton("Load", this);
     button_load_->setIcon(icon_happy);
-    grid_layout_->addWidget(button_load_,0,button_cnt_++);
+    h_button_layout_->addWidget(button_load_);
     button_format_=new QPushButton("Format", this);
     button_format_->setIcon(icon_love);
-    grid_layout_->addWidget(button_format_,0,button_cnt_++);
+    h_button_layout_->addWidget(button_format_);
     button_temp1_=new QPushButton("Temp1", this);
     button_temp1_->setIcon(icon_smile);
-    grid_layout_->addWidget(button_temp1_,0,button_cnt_++);
+    h_button_layout_->addWidget(button_temp1_);
     button_clear_=new QPushButton("Clear", this);
     button_clear_->setIcon(icon_wow);
-    grid_layout_->addWidget(button_clear_,0,button_cnt_++);
+    h_button_layout_->addWidget(button_clear_);
     button_quit_=new QPushButton("Quit", this);
     button_quit_->setIcon(icon_laugh);
-    grid_layout_->addWidget(button_quit_,0,button_cnt_++);
+    h_button_layout_->addWidget(button_quit_);
 
     // LineEdit(s)
     line_edit_=new QLineEdit(this);
-    grid_layout_->addWidget(line_edit_,1,0);
+    h_search_layout_->addWidget(line_edit_);
 
     // TextEdit(s)
     text_edit_=new QTextEdit(this);
-    grid_layout_->addWidget(text_edit_,2,0);
+    h_text_layout_->addWidget(text_edit_);
 
-    text_edit_side=new QTextEdit(this);
-    grid_layout_->addWidget(text_edit_side,2,1);
+    text_edit_side_=new QTextEdit(this);
+    h_text_layout_->addWidget(text_edit_side_);
 
     // Connect(s):
     connect(button_save_, SIGNAL (clicked()), this, SLOT (slotSaveDocument()));
@@ -100,5 +108,5 @@ void MenuWindow::slotLoadDocument(){
 
 void MenuWindow::slotClearDocuments(){
     text_edit_->clear();
-    text_edit_side->clear();
+    text_edit_side_->clear();
 }
