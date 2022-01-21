@@ -24,51 +24,51 @@ MenuWindow::MenuWindow(QWidget *parent)
     QIcon icon_laugh("../InfoLedge/resources/emoji/laugh.png");
 
     // Button(s)
-    m_buttonSave=new QPushButton("Save", this);
-    m_buttonSave->setIcon(icon_avatar);
-    m_buttonSave->setGeometry(margin_+button_width_*button_cnt_++,margin_,
+    button_save_=new QPushButton("Save", this);
+    button_save_->setIcon(icon_avatar);
+    button_save_->setGeometry(margin_+button_width_*button_cnt_++,margin_,
                               button_width_,button_height_);
-    m_buttonLoad=new QPushButton("Load", this);
-    m_buttonLoad->setIcon(icon_happy);
-    m_buttonLoad->setGeometry(margin_+button_width_*button_cnt_++,margin_,
+    button_load_=new QPushButton("Load", this);
+    button_load_->setIcon(icon_happy);
+    button_load_->setGeometry(margin_+button_width_*button_cnt_++,margin_,
                               button_width_,button_height_);
-    m_buttonFormat=new QPushButton("Format", this);
-    m_buttonFormat->setIcon(icon_love);
-    m_buttonFormat->setGeometry(margin_+button_width_*button_cnt_++,margin_,
+    button_format_=new QPushButton("Format", this);
+    button_format_->setIcon(icon_love);
+    button_format_->setGeometry(margin_+button_width_*button_cnt_++,margin_,
                               button_width_,button_height_);
-    m_buttonTemp1=new QPushButton("Temp1", this);
-    m_buttonTemp1->setIcon(icon_smile);
-    m_buttonTemp1->setGeometry(margin_+button_width_*button_cnt_++,margin_,
+    button_temp1_=new QPushButton("Temp1", this);
+    button_temp1_->setIcon(icon_smile);
+    button_temp1_->setGeometry(margin_+button_width_*button_cnt_++,margin_,
                               button_width_,button_height_);
-    m_buttonClear=new QPushButton("Clear", this);
-    m_buttonClear->setIcon(icon_wow);
-    m_buttonClear->setGeometry(margin_+button_width_*button_cnt_++,margin_,
+    button_clear_=new QPushButton("Clear", this);
+    button_clear_->setIcon(icon_wow);
+    button_clear_->setGeometry(margin_+button_width_*button_cnt_++,margin_,
                               button_width_,button_height_);
-    m_buttonQuit=new QPushButton("Quit", this);
-    m_buttonQuit->setIcon(icon_laugh);
-    m_buttonQuit->setGeometry(margin_+button_width_*button_cnt_++,margin_,
+    button_quit_=new QPushButton("Quit", this);
+    button_quit_->setIcon(icon_laugh);
+    button_quit_->setGeometry(margin_+button_width_*button_cnt_++,margin_,
                               button_width_,button_height_);
 
     // LineEdit(s)
-    m_lineEdit=new QLineEdit(this);
+    line_edit_=new QLineEdit(this);
 
     // TextEdit(s)
-    m_textEdit=new QTextEdit(this);
-    m_textEdit->setGeometry(margin_, margin_+button_height_,
+    text_edit_=new QTextEdit(this);
+    text_edit_->setGeometry(margin_, margin_+button_height_,
                             textWidth, textHeight);
-    m_textEditSide=new QTextEdit(this);
-    m_textEditSide->setGeometry(margin_+textWidth, margin_+button_height_,
+    text_edit_side=new QTextEdit(this);
+    text_edit_side->setGeometry(margin_+textWidth, margin_+button_height_,
                             textWidth, textHeight);
 
     // Connect(s):
-    connect(m_buttonSave, SIGNAL (clicked()), this, SLOT (slotSaveDocument()));
-    connect(m_buttonLoad, SIGNAL (clicked()), this, SLOT (slotLoadDocument()));
-    connect(m_buttonClear, SIGNAL (clicked()), this, SLOT (slotClearDocuments()));
-    connect(m_buttonQuit, SIGNAL (clicked()), QApplication::instance(), SLOT (quit()));
+    connect(button_save_, SIGNAL (clicked()), this, SLOT (slotSaveDocument()));
+    connect(button_load_, SIGNAL (clicked()), this, SLOT (slotLoadDocument()));
+    connect(button_clear_, SIGNAL (clicked()), this, SLOT (slotClearDocuments()));
+    connect(button_quit_, SIGNAL (clicked()), QApplication::instance(), SLOT (quit()));
 }
 
 void MenuWindow::slotSaveDocument(){
-    QTextDocument *qTextDocument = m_textEdit->document();
+    QTextDocument *qTextDocument = text_edit_->document();
     QString fileName = QFileDialog::getSaveFileName(this,
             tr("Save Text"), "",
             tr("Text (*.txt);;All Files (*)"));
@@ -99,12 +99,12 @@ void MenuWindow::slotLoadDocument(){
            return;
         }
         QString qStringContent = QString::fromUtf8(file.readAll());
-        m_textEdit->setPlainText(qStringContent);
+        text_edit_->setPlainText(qStringContent);
         file.close();
     }
 }
 
 void MenuWindow::slotClearDocuments(){
-    m_textEdit->clear();
-    m_textEditSide->clear();
+    text_edit_->clear();
+    text_edit_side->clear();
 }

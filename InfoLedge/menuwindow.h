@@ -15,10 +15,10 @@ public:
 private:
     int margin_, button_width_, button_height_, button_cnt_;
 
-    QPushButton *m_buttonSave, *m_buttonLoad, *m_buttonFormat,
-        *m_buttonTemp1, *m_buttonClear, *m_buttonQuit;
-    QLineEdit *m_lineEdit;
-    QTextEdit *m_textEdit, *m_textEditSide;
+    QPushButton *button_save_, *button_load_, *button_format_,
+        *button_temp1_, *button_clear_, *button_quit_;
+    QLineEdit *line_edit_;
+    QTextEdit *text_edit_, *text_edit_side;
 signals:
 private slots:
     void slotSaveDocument();
