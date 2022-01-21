@@ -7,15 +7,12 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow{parent}
 {
-    m_gridLayout = new QGridLayout(this);
+    central_widget_ = new QWidget();
+    grid_layout_ = new QGridLayout();
+    central_widget_->setLayout(grid_layout_);
 
-    m_menuWindow = new MenuWindow(this);
-    qDebug()<<m_menuWindow->size();
-    qDebug()<<m_menuWindow->sizeHint();
-    qDebug()<<m_menuWindow->layout();
-    qDebug()<<m_menuWindow->minimumSize();
-    qDebug()<<m_menuWindow->minimumSizeHint();
-    qDebug()<<m_menuWindow->sizePolicy();
+    menu_window_ = new MenuWindow(this);
+    grid_layout_->addWidget(menu_window_,0,0);
 
-    m_gridLayout->addWidget(m_menuWindow, 0,0,1,1);
+    setCentralWidget(central_widget_);
 }

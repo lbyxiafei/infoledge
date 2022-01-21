@@ -12,8 +12,9 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
 private:
-    QGridLayout *m_gridLayout;
-    MenuWindow *m_menuWindow;
+    QWidget *central_widget_;
+    QGridLayout *grid_layout_;
+    MenuWindow *menu_window_;
 
 signals:
 
