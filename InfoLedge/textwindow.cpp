@@ -58,3 +58,7 @@ void TextWindow::slotClearDocuments(){
     text_edit->clear();
     text_edit_side->clear();
 }
+
+void TextWindow::slotSideEditRefresh(QString content_in_str){
+    text_edit_side->setPlainText(content_in_str);
+}

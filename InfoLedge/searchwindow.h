@@ -1,7 +1,7 @@
 #ifndef SEARCHWINDOW_H
 #define SEARCHWINDOW_H
 
-#include <QBoxLayout>
+#include <QFormLayout>
 #include <QLineEdit>
 #include <QWidget>
 
@@ -12,7 +12,7 @@ public:
     explicit SearchWindow(QWidget *parent = nullptr);
     QLineEdit *line_edit;
 private:
-    QHBoxLayout *h_search_layout_;
+    QFormLayout *form_layout_;
 signals:
 private slots:
 };

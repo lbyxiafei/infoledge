@@ -26,6 +26,8 @@ MainWindow::MainWindow(QWidget *parent)
             text_window_, SLOT (slotClearDocuments()));
     connect(menu_window_->button_quit, SIGNAL (clicked()),
             QApplication::instance(), SLOT (quit()));
+    connect(search_window_->line_edit, SIGNAL(textEdited(QString)),
+            text_window_, SLOT (slotSideEditRefresh(QString)));
 
     central_widget_->setLayout(v_main_layout_);
     setCentralWidget(central_widget_);

@@ -17,6 +17,7 @@ private slots:
     void slotSaveDocument();
     void slotLoadDocument();
     void slotClearDocuments();
+    void slotSideEditRefresh(QString);
 };
 
 #endif // TEXTWINDOW_H

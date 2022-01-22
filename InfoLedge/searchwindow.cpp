@@ -3,10 +3,10 @@
 SearchWindow::SearchWindow(QWidget *parent)
     : QWidget{parent}
 {
-    h_search_layout_ = new QHBoxLayout();
+    form_layout_ = new QFormLayout();
 
     line_edit=new QLineEdit(this);
-    h_search_layout_->addWidget(line_edit);
+    form_layout_->addRow(tr("&Search:"), line_edit);
 
-    setLayout(h_search_layout_);
+    setLayout(form_layout_);
 }
