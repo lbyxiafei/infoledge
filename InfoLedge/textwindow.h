@@ -12,12 +12,15 @@ public:
     explicit TextWindow(QWidget *parent = nullptr);
     QHBoxLayout *h_text_layout_;
     QTextEdit *text_edit, *text_edit_side;
+private:
+    bool edit_mode_on_;
 signals:
 private slots:
     void slotSaveDocument();
     void slotLoadDocument();
-    void slotClearDocuments();
+    void slotClear();
     void slotSideEditRefresh(QString);
+    void slotModeChanged(bool);
 };
 
 #endif // TEXTWINDOW_H
