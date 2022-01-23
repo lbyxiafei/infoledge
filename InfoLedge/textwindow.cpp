@@ -1,5 +1,6 @@
 #include <QFile>
 #include <QFileDialog>
+#include <QFontMetricsF>
 #include <QMessageBox>
 
 #include "textwindow.h"
@@ -8,20 +9,21 @@ TextWindow::TextWindow(QWidget *parent)
     : QWidget{parent}
 {
     h_text_layout_ = new QHBoxLayout();
-    edit_mode_on_=false;
+    demo_mode_on_=false;
 
-    text_edit=new QTextEdit(this);
-    text_edit->setReadOnly(true);
-    h_text_layout_->addWidget(text_edit);
-
-    text_edit_side=new QTextEdit(this);
-    text_edit_side->setReadOnly(true);
-    h_text_layout_->addWidget(text_edit_side);
+    text_edit=new PlainTextEdit(this);
+    text_edit_md_viewer=new QTextEdit(this);
+    text_edit_md_viewer->setReadOnly(true);
+    stacked_widget = new QStackedWidget(this);
+    stacked_widget->addWidget(text_edit);
+    stacked_widget->addWidget(text_edit_md_viewer);
+    stacked_widget->setCurrentWidget(text_edit_md_viewer);
+    h_text_layout_->addWidget(stacked_widget);
 
     setLayout(h_text_layout_);
 }
 
-void TextWindow::slotSaveDocument(){
+void TextWindow::slotSave(){
     QTextDocument *edit_doc = text_edit->document();
     QString file_name = QFileDialog::getSaveFileName(this,
             tr("Save Text"), "",
@@ -40,7 +42,7 @@ void TextWindow::slotSaveDocument(){
     return;
 }
 
-void TextWindow::slotLoadDocument(){
+void TextWindow::slotLoad(){
     QString file_name = QFileDialog::getOpenFileName(this,
             tr("Save Text"), "",
             tr("Text (*.txt);;All Files (*)"));
@@ -54,25 +56,24 @@ void TextWindow::slotLoadDocument(){
         }
         QString file_content_in_str = QString::fromUtf8(file.readAll());
         text_edit->setPlainText(file_content_in_str);
+        text_edit_md_viewer->setMarkdown(file_content_in_str);
         file.close();
     }
 }
 
 void TextWindow::slotClear(){
     text_edit->clear();
-    text_edit_side->clear();
+    text_edit_md_viewer->clear();
 }
 
-void TextWindow::slotSideEditRefresh(QString content_in_str){
-    text_edit_side->setPlainText(content_in_str);
-}
-
-void TextWindow::slotModeChanged(bool button_mode_checked){
-    edit_mode_on_=button_mode_checked;
-    text_edit->setReadOnly(!edit_mode_on_);
-    text_edit_side->setReadOnly(!edit_mode_on_);
-    if(!edit_mode_on_){
-        text_edit->clear();
-        text_edit_side->clear();
+void TextWindow::slotDemoModeEnabled(bool demo_mode_on){
+    demo_mode_on_=demo_mode_on;
+    if(demo_mode_on_){
+        text_edit_md_viewer->setMarkdown(text_edit->toPlainText());
+        stacked_widget->setCurrentWidget(text_edit_md_viewer);
+    }
+    else{
+        stacked_widget->setCurrentWidget(text_edit);
+        text_edit->setFocus();
     }
 }

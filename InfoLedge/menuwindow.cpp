@@ -14,9 +14,8 @@ MenuWindow::MenuWindow(QWidget *parent)
     QIcon icon_working("../InfoLedge/resources/emoji/winking-face.png");
     QIcon icon_happy("../InfoLedge/resources/emoji/happy.png");
     QIcon icon_love("../InfoLedge/resources/emoji/love.png");
-    QIcon icon_smile("../InfoLedge/resources/emoji/smile.png");
     QIcon icon_wow("../InfoLedge/resources/emoji/wow.png");
-    QIcon icon_laugh("../InfoLedge/resources/emoji/laugh.png");
+    QIcon icon_party("../InfoLedge/resources/emoji/party.png");
 
     // Button(s)
     button_mode=new QPushButton("Demo", this);
@@ -29,14 +28,11 @@ MenuWindow::MenuWindow(QWidget *parent)
     button_load=new QPushButton("Load", this);
     button_load->setIcon(icon_happy);
     h_button_layout_->addWidget(button_load);
-    button_temp1=new QPushButton("Temp1", this);
-    button_temp1->setIcon(icon_smile);
-    h_button_layout_->addWidget(button_temp1);
     button_clear=new QPushButton("Clear", this);
     button_clear->setIcon(icon_wow);
     h_button_layout_->addWidget(button_clear);
     button_quit=new QPushButton("Quit", this);
-    button_quit->setIcon(icon_laugh);
+    button_quit->setIcon(icon_party);
     h_button_layout_->addWidget(button_quit);
 
     setLayout(h_button_layout_);

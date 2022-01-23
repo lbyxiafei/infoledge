@@ -4,7 +4,6 @@
 #include <QBoxLayout>
 #include <QMainWindow>
 
-#include "menuwindow.h"
 #include "searchwindow.h"
 #include "textwindow.h"
 
@@ -13,10 +12,10 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 public:
     explicit MainWindow(QWidget *parent = nullptr);
+    virtual void keyPressEvent(QKeyEvent*);
 private:
     QWidget *central_widget_;
     QVBoxLayout *v_main_layout_;
-    MenuWindow *menu_window_;
     SearchWindow *search_window_;
     TextWindow *text_window_;
 signals:

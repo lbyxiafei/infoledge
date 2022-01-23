@@ -2,8 +2,11 @@
 #define TEXTWINDOW_H
 
 #include <QBoxLayout>
-#include <QTextEdit>
+#include <QPlainTextEdit>
+#include <QStackedWidget>
 #include <QWidget>
+
+#include <plaintextedit.h>
 
 class TextWindow : public QWidget
 {
@@ -11,16 +14,17 @@ class TextWindow : public QWidget
 public:
     explicit TextWindow(QWidget *parent = nullptr);
     QHBoxLayout *h_text_layout_;
-    QTextEdit *text_edit, *text_edit_side;
+    QStackedWidget *stacked_widget;
+    QTextEdit *text_edit_md_viewer;
+    PlainTextEdit *text_edit;
 private:
-    bool edit_mode_on_;
+    bool demo_mode_on_;
 signals:
-private slots:
-    void slotSaveDocument();
-    void slotLoadDocument();
+public slots:
+    void slotSave();
+    void slotLoad();
     void slotClear();
-    void slotSideEditRefresh(QString);
-    void slotModeChanged(bool);
+    void slotDemoModeEnabled(bool);
 };
 
 #endif // TEXTWINDOW_H

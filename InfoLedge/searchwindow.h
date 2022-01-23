@@ -15,7 +15,7 @@ private:
     bool edit_mode_on_;
     QFormLayout *form_layout_;
 signals:
-private slots:
+public slots:
     void slotClear();
     void slotModeChanged(bool);
 };

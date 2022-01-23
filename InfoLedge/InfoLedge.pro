@@ -8,7 +8,7 @@ greaterThan(QT_MAJOR_VERSION, 5): QT += widgets
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    menuwindow.cpp \
+    plaintextedit.cpp \
     searchwindow.cpp \
     textwindow.cpp
 
@@ -34,6 +34,6 @@ DISTFILES += \
 
 HEADERS += \
     mainwindow.h \
-    menuwindow.h \
+    plaintextedit.h \
     searchwindow.h \
     textwindow.h
