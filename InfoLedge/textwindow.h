@@ -19,6 +19,7 @@ public:
     PlainTextEdit *text_edit;
 private:
     bool demo_mode_on_;
+    QSize sizeHint() const;
 signals:
 public slots:
     void slotSave();

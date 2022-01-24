@@ -23,6 +23,10 @@ TextWindow::TextWindow(QWidget *parent)
     setLayout(h_text_layout_);
 }
 
+QSize TextWindow::sizeHint() const {
+    return QSize(550,500);
+}
+
 void TextWindow::slotSave(){
     QTextDocument *edit_doc = text_edit->document();
     QString file_name = QFileDialog::getSaveFileName(this,
